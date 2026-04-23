@@ -4,7 +4,7 @@ import './Carousel.scss';
 interface CarouselProps {
   images: string[];
   itemWidth: number;
-  numberOfItems: number;
+  frameSize: number;
   step: number;
   animationDuration?: number;
 }
@@ -12,16 +12,14 @@ interface CarouselProps {
 const Carousel: React.FC<CarouselProps> = ({
   images,
   itemWidth,
-  numberOfItems,
+  frameSize,
   step,
   animationDuration = 1000,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
-    setCurrentIndex(prev =>
-      Math.min(prev + step, images.length - numberOfItems),
-    );
+    setCurrentIndex(prev => Math.min(prev + step, images.length - frameSize));
   };
 
   const handlePrev = () => {
@@ -32,7 +30,7 @@ const Carousel: React.FC<CarouselProps> = ({
     <div className="Carousel">
       <div
         className="Carousel__window"
-        style={{ width: `${itemWidth * numberOfItems}px` }}
+        style={{ width: `${itemWidth * frameSize}px` }}
       >
         <ul
           className="Carousel__list"
@@ -66,7 +64,7 @@ const Carousel: React.FC<CarouselProps> = ({
         type="button"
         className="Carousel__button"
         onClick={handleNext}
-        disabled={currentIndex >= images.length - numberOfItems}
+        disabled={currentIndex >= images.length - frameSize}
         data-cy="next"
       >
         Next

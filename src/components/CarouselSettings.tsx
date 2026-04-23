@@ -4,8 +4,8 @@ import './CarouselSettings.scss';
 interface CarouselSettingsProps {
   currentWidth: number;
   onWidthChange: (currentWidth: number) => void;
-  numberOfItems: number;
-  onNumberOfItems: (numberOfItems: number) => void;
+  frameSize: number;
+  onframeSize: (frameSize: number) => void;
   step: number;
   onStepChange: (step: number) => void;
   animationDuration: number;
@@ -15,8 +15,8 @@ interface CarouselSettingsProps {
 export const CarouselSettings: React.FC<CarouselSettingsProps> = ({
   currentWidth,
   onWidthChange,
-  numberOfItems,
-  onNumberOfItems,
+  frameSize,
+  onframeSize,
   step,
   onStepChange,
   animationDuration,
@@ -45,9 +45,9 @@ export const CarouselSettings: React.FC<CarouselSettingsProps> = ({
         id="frameId"
         type="number"
         className="input__inputs"
-        value={numberOfItems}
+        value={frameSize}
         min="1"
-        onChange={e => onNumberOfItems(Number(e.currentTarget.value))}
+        onChange={e => onframeSize(Number(e.currentTarget.value))}
       />
     </div>
 

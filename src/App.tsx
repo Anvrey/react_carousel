@@ -18,7 +18,7 @@ const App: React.FC = () => {
   ];
 
   const [itemWidth, setItemWidth] = useState(130);
-  const [numberOfItems, setNumberOfItems] = useState(3);
+  const [frameSize, setframeSize] = useState(3);
   const [step, setStep] = useState(3);
   const [animationDuration, setAnimationDuration] = useState(1000);
 
@@ -29,8 +29,8 @@ const App: React.FC = () => {
       <CarouselSettings
         currentWidth={itemWidth}
         onWidthChange={setItemWidth}
-        numberOfItems={numberOfItems}
-        onNumberOfItems={setNumberOfItems}
+        frameSize={frameSize}
+        onframeSize={setframeSize}
         step={step}
         onStepChange={setStep}
         animationDuration={animationDuration}
@@ -40,7 +40,7 @@ const App: React.FC = () => {
       <Carousel
         images={images}
         itemWidth={itemWidth}
-        numberOfItems={numberOfItems}
+        frameSize={frameSize}
         step={step}
         animationDuration={animationDuration}
       />
